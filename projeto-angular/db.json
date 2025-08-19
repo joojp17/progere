@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Configurar o ambiente de desenvolvimento",
+      "isDone": true
+    },
+    {
+      "id": "2",
+      "title": "Criar o projeto Angular",
+      "isDone": true
+    },
+    {
+      "id": "3",
+      "title": "Desenvolver a funcionalidade de listar tarefas",
+      "isDone": false
+    },
+    {
+      "id": "4",
+      "title": "Finalizar o teste técnico",
+      "isDone": false
+    }
+  ]
+}
