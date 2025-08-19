@@ -14,12 +14,12 @@
     Geralmente usamos para acessar ou trabalhar com algo em específico.
 
 - **Parâmetros de Consulta (Query Params):**
-    Parâmetros passados depois do `?` na URL e servem para filtros, paginação ou qualquer outra config.  
-    Exemplo:  
-      GET /usuarios?idade=25&cidade=SãoPaulo
+  Parâmetros passados depois do `?` na URL e servem para filtros, paginação ou qualquer outra config.  
+  Exemplo:  
+    GET /usuarios?idade=25&cidade=SãoPaulo
 
-      Nesse exemplo, estou passando por parâmetro valores nas chaves `idade` e `cidade`.  
-      Geralmente usamos para filtrar ou modificar a consulta.
+    Nesse exemplo, estou passando por parâmetro valores nas chaves `idade` e `cidade`.  
+    Geralmente usamos para filtrar ou modificar a consulta.
 
 ## 3. Para que serve o HttpClient no Angular?
 O `HttpClient` é usado para requisições HTTP (GET, POST, PUT, DELETE etc.) em Angular. 
