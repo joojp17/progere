@@ -1,0 +1,181 @@
+:host {
+  --brand: #239493;
+  --bg: #fff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb; 
+  --danger: #dc2626;
+}
+
+.todo {
+  width: 100%;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.add-form input[type="text"] {
+  flex: 1 1 auto;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  color: var(--text);
+}
+
+.add-form input[type="text"]:focus {
+  border-color: color-mix(in srgb, var(--brand) 60%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 15%, transparent);
+}
+
+.btn.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: var(--brand);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn.primary:hover {
+  filter: brightness(0.95);
+}
+
+.section + .section {
+  margin-top: 1.25rem;
+}
+
+.section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.badge {
+  display: inline-block;
+  min-width: 1.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand) 15%, white);
+  color: var(--brand);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.tasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.task:last-child {
+  border-bottom: 0;
+}
+
+.task label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--text);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--brand);
+}
+
+.state {
+  color: var(--brand);
+}
+
+.state.done {
+  color: var(--brand);
+}
+
+.title.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: #fafafa;
+}
+
+.icon-btn.danger {
+  border-color: color-mix(in srgb, var(--danger) 20%, var(--border));
+  color: var(--danger);
+}
+
+.icon-btn.danger:hover {
+  background: color-mix(in srgb, var(--danger) 6%, transparent);
+}
+
+.done-row {
+  opacity: 0.92;
+}
+
+.row-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.edit-input {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.edit-input:focus {
+  border-color: color-mix(in srgb, var(--brand) 60%, var(--border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 15%, transparent);
+}

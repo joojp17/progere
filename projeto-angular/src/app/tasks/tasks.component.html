@@ -1,0 +1,78 @@
+<section class="todo">
+  <h2>Gestor de Tarefas</h2>
+
+  <form (submit)="$event.preventDefault(); add()" class="add-form">
+    <input
+      type="text"
+      placeholder="Nova tarefa"
+      [(ngModel)]="newTitle"
+      name="title"
+    />
+    <button type="button" class="btn primary" (click)="add()">
+      <ng-icon name="lucidePlus" size="18"></ng-icon>
+      <span>Adicionar</span>
+    </button>
+  </form>
+
+  <div class="section">
+    <h3>
+      Pendentes
+      <span class="badge">{{ (pending$ | async)?.length || 0 }}</span>
+    </h3>
+    <ul class="tasks">
+      <li *ngFor="let t of pending$ | async; trackBy: trackById" class="task">
+        <label>
+          <input type="checkbox" [checked]="t.isDone" (change)="toggle(t)" />
+          <ng-container *ngIf="editingId !== t.id; else editTpl">
+            <span class="title">{{ t.title }}</span>
+          </ng-container>
+          <ng-template #editTpl>
+            <input class="edit-input" type="text" [(ngModel)]="editingTitle" name="edit-{{t.id}}" (keyup.enter)="saveEdit(t)" (keyup.escape)="cancelEdit()" />
+          </ng-template>
+        </label>
+        <div class="row-actions">
+          <button class="icon-btn" (click)="editingId === t.id ? saveEdit(t) : startEdit(t)" [title]="editingId === t.id ? 'Salvar' : 'Editar'">
+            <ng-icon [name]="editingId === t.id ? 'lucideCheck' : 'lucidePencil'" size="18"></ng-icon>
+          </button>
+          <button *ngIf="editingId === t.id" class="icon-btn" (click)="cancelEdit()" title="Cancelar" aria-label="Cancelar">
+            <span aria-hidden="true">✕</span>
+          </button>
+          <button class="icon-btn danger" (click)="remove(t)" title="Remover">
+            <ng-icon name="lucideTrash2" size="18"></ng-icon>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>
+      Concluídas
+      <span class="badge">{{ (done$ | async)?.length || 0 }}</span>
+    </h3>
+    <ul class="tasks">
+      <li *ngFor="let t of done$ | async; trackBy: trackById" class="task done-row">
+        <label>
+          <input type="checkbox" [checked]="t.isDone" (change)="toggle(t)" />
+          <ng-container *ngIf="editingId !== t.id; else editTplDone">
+            <span class="title done">{{ t.title }}</span>
+          </ng-container>
+          <ng-template #editTplDone>
+            <input class="edit-input" type="text" [(ngModel)]="editingTitle" name="edit-done-{{t.id}}" (keyup.enter)="saveEdit(t)" (keyup.escape)="cancelEdit()" />
+          </ng-template>
+        </label>
+        <div class="row-actions">
+          <button class="icon-btn" (click)="editingId === t.id ? saveEdit(t) : startEdit(t)" [title]="editingId === t.id ? 'Salvar' : 'Editar'">
+            <ng-icon [name]="editingId === t.id ? 'lucideCheck' : 'lucidePencil'" size="18"></ng-icon>
+          </button>
+          <button *ngIf="editingId === t.id" class="icon-btn" (click)="cancelEdit()" title="Cancelar" aria-label="Cancelar">
+            <span aria-hidden="true">✕</span>
+          </button>
+          <button class="icon-btn danger" (click)="remove(t)" title="Remover">
+            <ng-icon name="lucideTrash2" size="18"></ng-icon>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
