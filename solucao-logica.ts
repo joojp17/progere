@@ -12,3 +12,19 @@ const calcularFatorial = (n: number): number => {
 };
 
 console.log(calcularFatorial(-5));
+
+// 1.2
+const verificarPalindromo = (texto: string): boolean => {
+
+  const normalized = texto
+    .toLowerCase()
+    .replace(/\s+/g, "");
+
+  const inverse = normalized.split("").reverse().join("");
+
+  return normalized === inverse;
+};
+
+
+console.log(verificarPalindromo("Anotaram a data da maratona"));
+console.log(verificarPalindromo("Angular é legal"));
