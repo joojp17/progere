@@ -28,3 +28,29 @@ const verificarPalindromo = (texto: string): boolean => {
 
 console.log(verificarPalindromo("Anotaram a data da maratona"));
 console.log(verificarPalindromo("Angular é legal"));
+
+// 1.3
+interface Person {
+    nome: string;
+    idade: number;
+    cidade: string;
+}
+const agruparPor = (arr: Person[], key: string): { [key: string]: Person[] } => {
+  return arr.reduce((acc, obj) => {
+    const filter = obj[key];
+    if (!acc[filter]) {
+      acc[filter] = [];
+    }
+    acc[filter].push(obj);
+    return acc;
+  }, {} as { [key: string]: Person[] });
+};
+
+const people = [
+{ nome: "Ana", idade: 25, cidade: "São Paulo" },
+{ nome: "Bruno", idade: 30, cidade: "Rio de Janeiro" },
+{ nome: "Carla", idade: 25, cidade: "São Paulo" },
+{ nome: "Daniel", idade: 30, cidade: "Campinas" }
+];
+
+console.log(agruparPor(people, "cidade"));
