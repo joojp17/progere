@@ -11,7 +11,7 @@ const calcularFatorial = (n: number): number => {
     return n * calcularFatorial(n - 1);
 };
 
-console.log(calcularFatorial(-5));
+console.log(calcularFatorial(5));
 
 // 1.2
 const verificarPalindromo = (texto: string): boolean => {
@@ -24,7 +24,6 @@ const verificarPalindromo = (texto: string): boolean => {
 
   return normalized === inverse;
 };
-
 
 console.log(verificarPalindromo("Anotaram a data da maratona"));
 console.log(verificarPalindromo("Angular é legal"));
